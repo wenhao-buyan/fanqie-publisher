@@ -1,0 +1,10 @@
+{
+  "_说明": "复制本文件为 config.json 后填写。txt 建议写绝对路径。",
+  "bookId": "填作品ID，在作家后台作品卡片「章节管理」链接里",
+  "bookName": "填后台书名，必须完全一致（注意有无标点）",
+  "txt": "C:/path/to/你的正文.txt",
+  "total": 175,
+  "useAI": false,
+  "detect": "仅基础检测",
+  "titleFix": {}
+}

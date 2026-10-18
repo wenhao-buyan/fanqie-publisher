@@ -1,0 +1,27 @@
+# 登录态（含 cookie），绝不提交
+scripts/state.json
+scripts/login_info.json
+
+# 个人配置
+scripts/config.json
+
+# 生成物
+*.docx
+*.png
+chapter_map.json
+draft_rest.json
+draft_map.json
+draft_page2.json
+submit_progress.json
+verify_result.json
+online_*.json
+probe*.json
+
+# 依赖
+node_modules/
+__pycache__/
+*.pyc
+
+# 系统
+.DS_Store
+Thumbs.db
