@@ -5,7 +5,7 @@ const HERE = __dirname;
 const CFG = require('./config');
 const BOOK_ID = CFG.BOOK_ID;
 const BOOK_NAME = CFG.BOOK_NAME;
-const URL = `https://fanqienovel.com/main/writer/chapter-manage/${BOOK_ID}&${encodeURIComponent(BOOK_NAME)}?type=1`;
+const URL = `https://fanqienovel.com/main/writer/chapter-manage/${BOOK_ID}&${encodeURIComponent(BOOK_NAME)}?type=2`;
 const DOCX = process.argv[2] || path.join(HERE, '番茄上传_第24-26章_小样.docx');
 
 (async () => {
@@ -18,8 +18,6 @@ const DOCX = process.argv[2] || path.join(HERE, '番茄上传_第24-26章_小样
   const know = p.getByText('我知道了', { exact: true }).first();
   if (await know.count().catch(() => 0)) await know.click().catch(() => {});
   await p.waitForTimeout(800);
-
-  await p.getByText('草稿箱', { exact: true }).first().click();
   await p.waitForTimeout(3000);
 
   const before = (await p.locator('body').innerText()).match(/共\s*(\d+)\s*篇草稿/);
@@ -76,7 +74,6 @@ const DOCX = process.argv[2] || path.join(HERE, '番茄上传_第24-26章_小样
   await p.waitForTimeout(8000);
   const k2 = p.getByText('我知道了', { exact: true }).first();
   if (await k2.count().catch(() => 0)) await k2.click().catch(() => {});
-  await p.getByText('草稿箱', { exact: true }).first().click();
   await p.waitForTimeout(4000);
   const after = (await p.locator('body').innerText()).match(/共\s*(\d+)\s*篇草稿/);
   console.log('\n上传后草稿数:', after ? after[1] : '未知');
