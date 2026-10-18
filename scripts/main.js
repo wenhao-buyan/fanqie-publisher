@@ -8,12 +8,12 @@
  *   → 弹窗「发布设置」→ 是否使用AI 选「否」→ 确认提交
  *
  * 用法（在 番茄上传包 目录下，需先设 NODE_PATH）：
- *   node fanqie.js login              扫码登录（只需一次）
- *   node fanqie.js check              查已发章节，防重复
- *   node fanqie.js status             看本地进度
- *   node fanqie.js publish --count 1           发 1 章（无头，不弹窗）
- *   node fanqie.js publish --count 1 --show    发 1 章（显示窗口）
- *   node fanqie.js publish --count 3 --ai yes  指定 AI 声明为「是」
+ *   node scripts/main.js login              扫码登录（只需一次）
+ *   node scripts/main.js check              查已发章节，防重复
+ *   node scripts/main.js status             看本地进度
+ *   node scripts/main.js publish --count 1           发 1 章（无头，不弹窗）
+ *   node scripts/main.js publish --count 1 --show    发 1 章（显示窗口）
+ *   node scripts/main.js publish --count 3 --ai yes  指定 AI 声明为「是」
  */
 const fs = require('fs');
 const path = require('path');
@@ -331,12 +331,12 @@ function cmdStatus() {
     default:
       console.log(`番茄批量发文（v2）
 
-  node fanqie.js login                     扫码登录（一次）
-  node fanqie.js check                     查线上已有章节
-  node fanqie.js status                    看本地进度
-  node fanqie.js publish --count 1         发 1 章（无头）
-  node fanqie.js publish --count 1 --show  发 1 章（显示窗口）
-  node fanqie.js publish --count 5 --ai yes
+  node scripts/main.js login                     扫码登录（一次）
+  node scripts/main.js check                     查线上已有章节
+  node scripts/main.js status                    看本地进度
+  node scripts/main.js publish --count 1         发 1 章（无头）
+  node scripts/main.js publish --count 1 --show  发 1 章（显示窗口）
+  node scripts/main.js publish --count 5 --ai yes
 `);
   }
 })().catch(e => { console.error('出错：', e.message); process.exit(1); });

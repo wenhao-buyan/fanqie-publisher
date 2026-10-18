@@ -42,9 +42,12 @@ hi = int(sys.argv[2]) if len(sys.argv) > 2 else (TOTAL or 10 ** 9)
 raw = open(SRC, encoding="utf-8").read().replace("\r\n", "\n")
 CH = re.compile(r"^第(\d+)章[\s\u3000]+(.+)$")
 chapters, cur = [], None
+VOL = re.compile(r"^第[一二三四五六七八九十百]+卷")   # 卷标题行要丢弃，否则会被当成正文
 for ln in raw.split("\n"):
     s = ln.strip()
     if not s:
+        continue
+    if VOL.match(s):
         continue
     m = CH.match(s)
     if m:
